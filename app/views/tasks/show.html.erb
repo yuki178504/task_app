@@ -1,0 +1,38 @@
+<h3>【スケジュール詳細】</h3>
+
+<table>
+  <tr>
+    <th>タイトル</th>
+    <td><%= @task.title %></td>
+  </tr>
+
+  <tr>
+    <th>開始日</th>
+    <td><%= @task.start_date.strftime("%Y年%m月%d日") %></td>
+  </tr>
+
+  <tr>
+    <th>終了日</th>
+    <td><%= @task.end_date.strftime("%Y年%m月%d日") %></td>
+  </tr>
+
+  <tr>
+    <th>終日</th>
+    <td><% if @task.all_day == true %>
+            ○
+        <% else %>
+    <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <th>スケジュール内容</th>
+    <td><%= @task.introduction %></td>
+  </tr>
+</table>
+
+<ul>
+  <li><%= link_to "編集", :edit_task %></li>
+  <li><%= link_to "スケジュール一覧に戻る", :tasks %></li>
+  <li><%= link_to "削除", :task, method: :delete, data: {confirm: "本当に削除しますか？"} %></li>
+</ul>
